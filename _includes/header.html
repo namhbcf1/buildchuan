@@ -1,0 +1,30 @@
+<header class="bg-white dark:bg-gray-800 shadow-md py-4 px-6 sticky top-0 z-50 transition-all duration-300 ease-in-out">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between">
+        <div class="logo-container flex items-center">
+            <div class="logo flex items-center space-x-2">
+                <i class="fas fa-desktop text-primary-600 dark:text-primary-400 text-2xl"></i>
+                <span class="font-bold text-xl text-gray-800 dark:text-white">{{ site.title }}</span>
+            </div>
+        </div>
+        <div class="contact-buttons flex flex-wrap items-center space-x-2 md:space-x-4">
+            <button id="theme-toggle" class="p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-colors duration-300">
+                <i class="fas fa-sun hidden dark:block"></i>
+                <i class="fas fa-moon block dark:hidden"></i>
+            </button>
+            <a href="https://zalo.me/0836768597" target="_blank" class="contact-button bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center space-x-2 text-sm md:text-base">
+                <i class="fab fa-zalo"></i> 
+                <span>Liên hệ qua Zalo</span>
+            </a>
+            <div class="phone-number">
+                <a href="tel:0836768597" class="flex items-center space-x-2 text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition duration-300">
+                    <i class="fas fa-phone-alt"></i>
+                    <span class="font-medium">0836768597</span>
+                </a>
+            </div>
+            <a href="https://www.facebook.com/{{ site.minima.social_links.facebook }}" target="_blank" class="contact-button bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition duration-300 flex items-center space-x-2 text-sm md:text-base">
+                <i class="fab fa-facebook"></i> 
+                <span>Liên hệ qua Facebook</span>
+            </a>
+        </div>
+    </div>
+</header> 

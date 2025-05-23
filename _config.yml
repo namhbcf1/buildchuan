@@ -1,0 +1,44 @@
+title: BUILD PC TRUONG PHAT COMPUTER
+description: Trang web xây dựng cấu hình máy tính theo nhu cầu và ngân sách.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Theme settings
+minima:
+  skin: dark # classic, dark, solarized, etc.
+  social_links:
+    facebook: tpcom.hb
+
+# GitHub Pages settings
+github:
+  is_project_page: true
+  repository_url: https://github.com/username/webbuild-main
+  owner_name: TRUONG PHAT COMPUTER
+  
+# Syntax highlighting
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter_opts:
+    default_lang: html
+    
+# Exclude from processing
+exclude:
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - server.js
+  - serve.js
+  - buildchuan.zip
+  - Gemfile
+  - Gemfile.lock
+  - vendor/
+  - .sass-cache/
+  - .jekyll-cache/
+  - .jekyll-metadata 

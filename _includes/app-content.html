@@ -1,0 +1,195 @@
+<!-- Phần tầm tiền -->
+<section id="budget-range-selection" class="selection-section accent-section bg-gradient-to-r from-primary-50 to-primary-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 mb-8 shadow-md transition-all duration-300">
+    <div class="section-header flex items-center mb-6">
+        <i class="fas fa-money-bill-wave text-2xl text-secondary-500 mr-3"></i>
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Chọn Cấu Hình Tầm Tiền Mong Muốn</h2>
+    </div>
+    <div class="slider-container px-4 py-2">
+        <div class="slider-value-container flex justify-between items-center mb-4 text-lg font-medium">
+            <span id="budget-value-min" class="text-gray-600 dark:text-gray-400">3 triệu</span>
+            <span id="budget-value" class="budget-value-current text-xl font-bold text-primary-600 dark:text-primary-400 px-4 py-1 bg-white dark:bg-gray-800 rounded-full shadow-sm">3 triệu</span>
+            <span id="budget-value-max" class="text-gray-600 dark:text-gray-400">30 triệu</span>
+        </div>
+        <input type="range" id="budget-range" min="3000000" max="30000000" step="1000000" value="3000000" class="slider w-full h-2 bg-gray-300 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-secondary-500">
+        <div class="slider-ticks flex justify-between mt-2 text-sm text-gray-500 dark:text-gray-400">
+            <span>3M</span>
+            <span>10M</span>
+            <span>20M</span>
+            <span>30M</span>
+        </div>
+    </div>
+</section>
+
+<!-- Phần chọn loại CPU -->
+<section id="cpu-type-selection" class="selection-section accent-section bg-gradient-to-r from-primary-50 to-primary-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 mb-8 shadow-md transition-all duration-300">
+    <div class="section-header flex items-center mb-6">
+        <i class="fas fa-microchip text-2xl text-secondary-500 mr-3"></i>
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Chọn Loại CPU</h2>
+    </div>
+    <div class="cpu-brand-selection flex justify-center gap-8 my-4">
+        <div class="brand-option cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 w-40 flex flex-col items-center" id="intel-option">
+            <div class="brand-logo text-4xl text-blue-600 mb-3"><i class="fab fa-intel"></i></div>
+            <div class="brand-name font-bold text-xl text-gray-800 dark:text-white">INTEL</div>
+        </div>
+        <div class="brand-option cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 w-40 flex flex-col items-center" id="amd-option">
+            <div class="brand-logo text-4xl text-red-600 mb-3"><i class="fab fa-amd"></i></div>
+            <div class="brand-name font-bold text-xl text-gray-800 dark:text-white">AMD</div>
+        </div>
+    </div>
+    <select id="cpu-type" name="cpu-type" class="dropdown hidden-dropdown sr-only" required>
+        <option value="Intel">INTEL</option>
+        <option value="Amd">AMD</option>
+    </select>
+</section>
+
+<!-- Phần chọn game -->
+<section id="game-selection" class="selection-section accent-section bg-gradient-to-r from-primary-50 to-primary-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-6 mb-8 shadow-md transition-all duration-300">
+    <div class="section-header flex items-center mb-6">
+        <i class="fas fa-gamepad text-2xl text-secondary-500 mr-3"></i>
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Chọn Game Muốn Chơi</h2>
+    </div>
+    <div class="game-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div class="game-card cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-game="valorant">
+            <div class="game-image w-full h-28 bg-cover bg-center" style="background-image: url('{{ '/images/valorant.jpg' | relative_url }}');"></div>
+            <div class="game-name p-2 text-center font-medium text-gray-800 dark:text-white text-sm">Valorant</div>
+        </div>
+        <div class="game-card cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-game="csgo">
+            <div class="game-image w-full h-28 bg-cover bg-center" style="background-image: url('{{ '/images/csgo.jpg' | relative_url }}');"></div>
+            <div class="game-name p-2 text-center font-medium text-gray-800 dark:text-white text-sm">CS:GO</div>
+        </div>
+        <div class="game-card cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-game="pubg">
+            <div class="game-image w-full h-28 bg-cover bg-center" style="background-image: url('{{ '/images/pubg.jpg' | relative_url }}');"></div>
+            <div class="game-name p-2 text-center font-medium text-gray-800 dark:text-white text-sm">PUBG</div>
+        </div>
+        <div class="game-card cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-game="lol">
+            <div class="game-image w-full h-28 bg-cover bg-center" style="background-image: url('{{ '/images/lol.jpg' | relative_url }}');"></div>
+            <div class="game-name p-2 text-center font-medium text-gray-800 dark:text-white text-sm">Liên Minh Huyền Thoại</div>
+        </div>
+        <div class="game-card cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-game="gta-v">
+            <div class="game-image w-full h-28 bg-cover bg-center" style="background-image: url('{{ '/images/gta-v.jpg' | relative_url }}');"></div>
+            <div class="game-name p-2 text-center font-medium text-gray-800 dark:text-white text-sm">GTA V</div>
+        </div>
+        <div class="game-card cursor-pointer transition-all duration-300 transform hover:scale-105 bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden" data-game="elden-ring">
+            <div class="game-image w-full h-28 bg-cover bg-center" style="background-image: url('{{ '/images/elden-ring.jpg' | relative_url }}');"></div>
+            <div class="game-name p-2 text-center font-medium text-gray-800 dark:text-white text-sm">Elden Ring</div>
+        </div>
+        <!-- More game cards -->
+    </div>
+    <select id="game-genre" name="game-genre" class="dropdown hidden-dropdown sr-only" required>
+        <option value="">Chọn game</option>
+        <option value="valorant">Valorant</option>
+        <option value="csgo">CS:GO</option>
+        <option value="pubg">PUBG</option>
+        <option value="lol">Liên Minh Huyền Thoại (LOL)</option>
+        <option value="gta-v">GTA V</option>
+        <option value="elden-ring">Elden Ring</option>
+        <!-- More game options -->
+    </select>
+    
+    <div class="auto-select-container mt-8 text-center">
+        <button id="manual-auto-select" class="action-button primary-btn bg-secondary-500 hover:bg-secondary-600 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 flex items-center mx-auto space-x-2 transform hover:scale-105">
+            <i class="fas fa-magic"></i>
+            <span class="font-medium">Tự Động Chọn Cấu Hình</span>
+        </button>
+    </div>
+</section>
+
+<!-- Component selection and other sections -->
+<section id="component-selection" class="selection-section bg-white dark:bg-gray-800 rounded-xl p-6 mb-8 shadow-md transition-all duration-300">
+    <div class="section-header flex items-center mb-6">
+        <i class="fas fa-laptop-code text-2xl text-secondary-500 mr-3"></i>
+        <h2 class="text-2xl font-bold text-gray-800 dark:text-white">Lựa Chọn Linh Kiện Chính</h2>
+    </div>
+    <div class="container">
+        <div class="components-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- CPU -->
+            <div class="component bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm transition-all duration-300 hover:shadow-md">
+                <div class="component-header flex items-center justify-between mb-3">
+                    <div class="flex items-center">
+                        <i class="fas fa-microchip text-primary-500 text-xl mr-2"></i>
+                        <h3 class="font-semibold text-gray-800 dark:text-white">CPU</h3>
+                    </div>
+                    <div class="compatibility-icon text-green-500" id="cpu-compatibility"><i class="fas fa-check-circle"></i></div>
+                </div>
+                <select id="cpu" name="cpu" class="dropdown w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    <option value="" disabled selected>Chọn CPU</option>
+                </select>
+                <div class="component-info-hover" id="cpu-info">
+                    <div class="specs-preview"></div>
+                </div>
+            </div>
+
+            <!-- Mainboard -->
+            <div class="component bg-gray-50 dark:bg-gray-700 rounded-lg p-4 shadow-sm transition-all duration-300 hover:shadow-md">
+                <div class="component-header flex items-center justify-between mb-3">
+                    <div class="flex items-center">
+                        <i class="fas fa-server text-primary-500 text-xl mr-2"></i>
+                        <h3 class="font-semibold text-gray-800 dark:text-white">Mainboard</h3>
+                    </div>
+                    <div class="compatibility-icon text-green-500" id="mainboard-compatibility"><i class="fas fa-check-circle"></i></div>
+                </div>
+                <select id="mainboard" name="mainboard" class="dropdown w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-gray-700 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500">
+                    <option value="" disabled selected>Chọn Mainboard</option>
+                </select>
+                <div class="component-info-hover" id="mainboard-info">
+                    <div class="specs-preview"></div>
+                </div>
+            </div>
+
+            <!-- More components -->
+        </div>
+    </div>
+</section>
+
+<!-- Total price section -->
+<section id="total-price" class="total-price bg-gradient-to-r from-primary-600 to-primary-700 text-white rounded-xl p-6 mb-8 shadow-lg">
+    <h2 class="text-2xl font-bold mb-3 flex items-center">
+        <i class="fas fa-coins mr-2"></i> Tổng Tiền Dự Kiến
+    </h2>
+    <p class="text-3xl font-bold mb-4">0 VNĐ</p>
+    <div class="price-breakdown">
+        <button id="view-breakdown" class="view-breakdown-btn bg-white text-primary-600 hover:bg-gray-100 px-4 py-2 rounded-lg shadow transition duration-300 flex items-center mx-auto">
+            <i class="fas fa-receipt mr-2"></i> Xem chi tiết
+        </button>
+    </div>
+</section>
+
+<!-- Action buttons -->
+<div class="button-group flex flex-wrap justify-center gap-4 mb-8">
+    <button type="button" class="action-button secondary-btn bg-gray-500 hover:bg-gray-600 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 flex items-center space-x-2" id="reset-button">
+        <i class="fas fa-redo"></i>
+        <span>Làm mới</span>
+    </button>
+    <button type="button" class="action-button primary-btn bg-primary-600 hover:bg-primary-700 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 flex items-center space-x-2 transform hover:scale-105" id="calculate-button">
+        <i class="fas fa-clipboard-check"></i>
+        <span>XEM CHI TIẾT VÀ ĐÁNH GIÁ</span>
+    </button>
+    <button type="button" class="action-button accent-btn bg-secondary-500 hover:bg-secondary-600 text-white py-3 px-6 rounded-lg shadow-lg transition-all duration-300 flex items-center space-x-2" id="save-button">
+        <i class="fas fa-save"></i>
+        <span>Lưu cấu hình</span>
+    </button>
+</div>
+
+<!-- Script for the interactive PC builder -->
+<script src="{{ '/buildsan.js' | relative_url }}" type="module"></script>
+<script>
+    // Dark mode toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Check for saved theme preference or use system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Apply the theme
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        // Toggle theme on button click
+        themeToggleBtn.addEventListener('click', function() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    });
+</script> 

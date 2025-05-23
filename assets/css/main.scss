@@ -1,0 +1,70 @@
+@import "minima";
+
+// Custom styles that override the theme
+:root {
+  --primary-color: #0ea5e9;
+  --secondary-color: #f97316;
+}
+
+.site-header {
+  border-top: 5px solid var(--primary-color);
+}
+
+.site-title, .site-title:visited {
+  color: var(--primary-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  
+  &:hover {
+    background-color: darken(#0ea5e9, 10%);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  
+  &:hover {
+    background-color: darken(#f97316, 10%);
+  }
+}
+
+// Dark mode overrides
+.dark {
+  --background-color: #1a202c;
+  --text-color: #f7fafc;
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 640px) {
+  .page-content {
+    padding: 1rem;
+  }
+}
+
+// Print styles
+@media print {
+  .site-header, .site-footer, .no-print {
+    display: none;
+  }
+  
+  body {
+    font-size: 12pt;
+  }
+} 

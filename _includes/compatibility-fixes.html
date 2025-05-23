@@ -1,0 +1,91 @@
+<script>
+    // Fix for "exports is not defined" errors
+    if (typeof exports === 'undefined') {
+        window.exports = {};
+        window.module = { exports: window.exports };
+    }
+    
+    // Fix for 'require is not defined' error
+    if (typeof require === 'undefined') {
+        window.require = function(module) {
+            console.log('Mock require called for:', module);
+            return {};
+        };
+    }
+    
+    // Fix for "process is not defined" error
+    if (typeof process === 'undefined') {
+        window.process = {
+            env: { NODE_ENV: 'production' },
+            browser: true,
+            versions: { node: false }
+        };
+    }
+    
+    // Fix for potential infinite recursion in getWindow/getComputedStyle
+    const originalGetComputedStyle = window.getComputedStyle;
+    const computedStyleCache = new WeakMap();
+    
+    window.getComputedStyle = function(element, pseudoElt) {
+        if (!element) return null;
+        
+        // Return cached result if available
+        if (computedStyleCache.has(element)) {
+            return computedStyleCache.get(element);
+        }
+        
+        try {
+            // Handle special element types that might cause recursion
+            if (element instanceof HTMLCanvasElement || 
+                element instanceof HTMLImageElement ||
+                element instanceof SVGElement ||
+                element instanceof HTMLScriptElement) {
+                const defaultStyle = {
+                    getPropertyValue: () => '',
+                    setProperty: () => {},
+                };
+                computedStyleCache.set(element, defaultStyle);
+                return defaultStyle;
+            }
+            
+            const result = originalGetComputedStyle.call(window, element, pseudoElt);
+            computedStyleCache.set(element, result);
+            return result;
+        } catch (e) {
+            console.warn('Error in getComputedStyle:', e);
+            return originalGetComputedStyle.call(window, document.body); // Fallback
+        }
+    };
+    
+    // Fix for read-only window properties
+    const windowProxy = new Proxy(window, {
+        set(target, prop, value) {
+            if (['top', 'parent', 'self', 'window', 'frames', 'location'].includes(prop)) {
+                const safeProp = `${prop}_safe`;
+                try {
+                    Object.defineProperty(target, safeProp, {
+                        value,
+                        writable: true,
+                        configurable: true
+                    });
+                    console.log(`Created safe property '${safeProp}' for read-only '${prop}'`);
+                    return true;
+                } catch (e) {
+                    console.warn(`Could not create safe property for ${prop}:`, e);
+                    return true; // Prevent error
+                }
+            }
+            target[prop] = value;
+            return true;
+        }
+    });
+    
+    // Apply the proxy
+    try {
+        if (typeof globalThis !== 'undefined') {
+            globalThis.windowProxy = windowProxy;
+        }
+    } catch (e) {
+        console.warn('Failed to create window proxy:', e);
+    }
+</script> 
